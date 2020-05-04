@@ -3,6 +3,7 @@
 const TYPES = [
   'REQUEST',
   'UPDATE',
+  'ADD',
   'SUCCESS',
   'FAILURE',
   'CANCEL',

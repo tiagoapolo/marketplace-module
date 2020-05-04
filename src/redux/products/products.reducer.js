@@ -2,10 +2,10 @@ import {
   PRODUCTS
 } from './types';
 
-import mock from './products.mock';
+// import mock from './products.mock';
 
 const initialState = {
-  products: mock,
+  products: [],
   loading: false,
   error: null
 };
@@ -17,11 +17,10 @@ export const productsReducer = (state = initialState, action) => {
     case PRODUCTS.SUCCESS:
       return {
         ...state,
-        purchases: [],
-        loading: true,
+        products: ([]).concat(action.products),
+        loading: false,
         error: null,
       }
-      
     default:
       return state;
   }

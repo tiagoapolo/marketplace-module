@@ -1,5 +1,6 @@
 import { PRODUCTS } from './types'
 
-export const fetchProducts = () => ({
-  type: PRODUCTS.REQUEST,
+export const setProducts = products => ({
+  type: PRODUCTS.SUCCESS,
+  products: products, 
 });

@@ -2,24 +2,43 @@ import {
   QUESTIONS
 } from './types';
 
-import mock from './questions.mock';
-
 const initialState = {
-  questions: mock,
+  questions: [],
   loading: false,
   error: null
 };
 
-export const productsReducer = (state = initialState, action) => {
+export const questionsReducer = (state = initialState, action) => {
 
   switch (action.type) {
+
+    case QUESTIONS.REQUEST:
+      return {
+        ...state,
+        questions: [],
+        loading: true,
+        error: null,
+      }
 
     case QUESTIONS.SUCCESS:
       return {
         ...state,
-        purchases: [],
-        loading: true,
+        questions: action.questions,
+        loading: false,
         error: null,
+      }
+
+    case QUESTIONS.ADD:
+      return {
+        ...state,
+        questions: ([action.newQuestion]).concat(state.questions),
+        loading: false,
+        error: null,
+      }      
+
+    case QUESTIONS.RESET:
+      return {
+        ...initialState
       }
       
     default:
