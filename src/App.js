@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
 
-import { getAuthUrl } from './services/auth'
+import MyRouter from './router/routes'
 
 function App() {
-
-  getAuthUrl()
-  .then(x => console.log('x', x))
-
-  return (
+  return (    
     <div className="App">
-    </div>
+      <MyRouter/>
+    </div>    
   );
 }
 
